@@ -78,6 +78,8 @@ namespace :chef do
         io.write Rrtcs::Core::AttributesTemplate.new(host).load.to_json
       end
     end
+
+    Rrtcs::Core.create_solo_rb File.join(configs_dir, 'solo.rb')
   end
 
   remote_task :update_repository => :create_temp_local_chef_repo do
@@ -85,8 +87,7 @@ namespace :chef do
     rsync File.join(local_temp_dir, 'chef-repo', ''), "#{target_host}:#{remote_chef_repo_path}"
 
     if File.directory?(local_blob_dir)
-      sudo "mkdir -p #{remote_blob_dir}"
-      sudo "chown #{user} #{remote_blob_dir}"
+      run "mkdir -p #{remote_blob_dir}"
       rsync "#{local_blob_dir}", "#{target_host}:#{remote_blob_dir}"
     end
   end
