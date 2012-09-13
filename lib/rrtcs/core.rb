@@ -3,6 +3,7 @@ require 'erb'
 require 'temp_dir'
 require 'fileutils'
 require 'json'
+require 'deep_merge'
 
 set :attributes_dir, './config/attributes'
 set :solo_rb_template, File.dirname(__FILE__) + '/core/solo.rb.erb'
@@ -44,15 +45,21 @@ module Rrtcs
       def load
         attributes = load_attributes_for(:default)
         roles.each do |role|
-          attributes.update(load_attributes_for(role) || {})
+          attributes.deep_merge!(load_attributes_for(role) || {})
         end
-        attributes.update( 'run_list' => Rake::RemoteTask.runlist_for(*roles) )
+        attributes.update('run_list' => Rake::RemoteTask.runlist_for(*roles)) unless attributes.has_key?('run_list')
         attributes
       end
 
       def load_attributes_for(role)
-        open("#{attributes_dir}/#{role.to_s}.yml.erb") do |io|
-          YAML.load(ERB.new(io.read).result(binding))
+        role_file = "#{attributes_dir}/#{role.to_s}.yml.erb"
+        if File.file?(role_file)
+          open(role_file) do |io|
+            YAML.load(ERB.new(io.read).result(binding))
+          end
+        else
+          puts "attributes template not found at: #{role_file}"
+          {}
         end
       end
     end

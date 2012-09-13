@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "rake-remote_task"
   gem.add_runtime_dependency "tempdir"
   gem.add_runtime_dependency "json"
+  gem.add_runtime_dependency "deep_merge"
 end
