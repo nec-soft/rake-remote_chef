@@ -13,11 +13,12 @@ end
 module Rake
   class RemoteTask
 
-    def self.runlist role, runlist
+    def self.run_list role, runlist
       @runlist ||= {}
       @runlist[role] ||= []
       (@runlist[role] += runlist).uniq!
     end
+    alias runlist run_list
 
     def self.runlist_for *roles
       roles.map {|r| @runlist[r] }.flatten.uniq.compact
