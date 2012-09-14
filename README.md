@@ -1,4 +1,4 @@
-# Rake::RemoteTask::Chef::Solo
+# Rake::RemoteChef
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'rake-remote_task-chef-solo'
+    gem 'rake-remote_chef'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rake-remote_task-chef-solo
+    $ gem install rake-remote_chef
 
 ## Usage
 
