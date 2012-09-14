@@ -1,6 +1,6 @@
 # Rake::RemoteChef
 
-TODO: Write a gem description
+Rake::RemoteChef can run chef-solo on remote host using Rake.
 
 ## Installation
 
@@ -18,7 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ rake chef:bootstrap   # first time only. (Install chef-solo on remote host.)
+    $ rake chef:solo
+
+## Setup
 
 ## Contributing
 
