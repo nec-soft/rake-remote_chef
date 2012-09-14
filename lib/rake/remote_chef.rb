@@ -19,7 +19,7 @@ module Rake
       (@runlist[role] += runlist).uniq!
     end
 
-    def self.runlist_for *roles
+    def self.run_list_for *roles
       roles.map {|r| @runlist[r] }.flatten.uniq.compact
     end
 
