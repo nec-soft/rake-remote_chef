@@ -18,7 +18,6 @@ module Rake
       @runlist[role] ||= []
       (@runlist[role] += runlist).uniq!
     end
-    alias runlist run_list
 
     def self.runlist_for *roles
       roles.map {|r| @runlist[r] }.flatten.uniq.compact
