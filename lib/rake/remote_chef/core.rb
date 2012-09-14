@@ -47,7 +47,7 @@ class Rake::RemoteChef::Core
       roles.each do |role|
         attributes.deep_merge!(load_attributes_for(role) || {})
       end
-      attributes.update('run_list' => Rake::RemoteTask.runlist_for(*roles)) unless attributes.has_key?('run_list')
+      attributes.update('run_list' => Rake::RemoteChef.run_list_for(*roles)) unless attributes.has_key?('run_list')
       attributes
     end
 
