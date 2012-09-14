@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/rake-remote_task-chef-solo/version', __FILE__)
+require File.expand_path('../lib/rake/remote_chef/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["yuanying"]
@@ -11,9 +11,9 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "rake-remote_task-chef-solo"
+  gem.name          = "rake-remote_chef"
   gem.require_paths = ["lib"]
-  gem.version       = Rake::RemoteTask::Chef::Solo::VERSION
+  gem.version       = Rake::RemoteChef::VERSION
 
   gem.add_runtime_dependency "hoe"
   gem.add_runtime_dependency "rake-remote_task"
