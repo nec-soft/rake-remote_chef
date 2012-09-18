@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["yuanying@fraction.jp"]
   gem.description   = %q{Execute chef-solo with Rake::RemoteTask to remote host.}
   gem.summary       = %q{Execute chef-solo with Rake::RemoteTask to remote host.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/nec-soft/rake-remote_chef"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
