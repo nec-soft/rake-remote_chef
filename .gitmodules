@@ -1,0 +1,3 @@
+[submodule "example/chef-repo/cookbooks"]
+	path = example/chef-repo/cookbooks
+	url = https://github.com/opscode/cookbooks
