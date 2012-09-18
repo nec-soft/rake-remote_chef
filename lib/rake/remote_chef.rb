@@ -20,6 +20,7 @@ module Rake
     end
 
     def self.run_list_for *roles
+      roles.unshift(:default)
       roles.map {|r| @runlist[r] }.flatten.uniq.compact
     end
 
