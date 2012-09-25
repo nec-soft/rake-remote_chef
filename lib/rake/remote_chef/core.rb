@@ -101,7 +101,7 @@ namespace :chef do
 
   desc 'Execute chef-solo on remote.'
   remote_task :solo => :update_repository do
-    sudo "#{ruby_path}/bin/chef-solo -c #{remote_chef_repo_path}/configs/solo.rb -j #{remote_chef_repo_path}/configs/#{target_host}.json"
+    sudo "#{remote_chef_path}/bin/chef-solo -c #{remote_chef_repo_path}/configs/solo.rb -j #{remote_chef_repo_path}/configs/#{target_host}.json"
   end
 
 end

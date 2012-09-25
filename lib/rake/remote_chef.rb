@@ -32,7 +32,7 @@ module Rake
 
       recipes = {
         :config => 'config/chef.rb',
-        :bootstrap => 'bootstrap/ubuntu',
+        :bootstrap => 'bootstrap/omnibus',
         :core => 'core'
       }.merge(options)
 

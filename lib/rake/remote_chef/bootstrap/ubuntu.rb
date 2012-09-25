@@ -1,4 +1,5 @@
 
+set(:remote_chef_path) { ruby_path }
 set :ruby_version, '1.9.3-p194'
 
 namespace :chef do
